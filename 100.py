@@ -252,10 +252,10 @@
 # print(languages.index('Python',1))
 # print(languages.count('Python'))    #出现次数
 
-# languages.sort()    #排序
+# languages.sort()               #排序
 # print(languages)
 # languages = ['Python','Java','C++','Python']
-# languages.reverse() #反转
+# languages.reverse()            #反转
 # print(languages)
 
 
