@@ -370,4 +370,5 @@ for i in range(n):
     )
 console.print(table)
 
+
                     # day10
