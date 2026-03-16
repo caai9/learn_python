@@ -898,20 +898,48 @@ from tkinter.font import names
 # func(name='kkk')
 
 
-def decol1(fn):
-    def inner():
-        return 'plpl'+fn()+'kkk'
-    return inner
+# def decol1(fn):
+#     def inner():
+#         return 'plpl'+fn()+'kkk'
+#     return inner
+#
+# def decol2(fn):
+#     def inner():
+#         return '来来来'+fn()+'你你你'
+#     return inner
+# @decol1
+# @decol2 #多个装饰器装饰时，离函数最近的装饰器先装饰，如何外面的装饰器再进行装饰
+# def test1():
+#     return '123sdsd'
+# print(test1())
 
-def decol2(fn):
-    def inner():
-        return '来来来'+fn()+'你你你'
-    return inner
-@decol1
-@decol2 #多个装饰器装饰时，离函数最近的装饰器先装饰，如何外面的装饰器再进行装饰
-def test1():
-    return '123sdsd'
-print(test1())
+
+# # 面向对象
+# # 类和对象
+# # class 类名:
+# #     代码块
+# # 实例化对象格式
+# # 对象名 = 类名()
+# # 类的三要素:类名，属性，方法
+# class Washer:
+#     height = 800
+# print(Washer.height)
+# Washer.width = 450
+# print(Washer.width)
+# wa = Washer() #实例化对象
+# print(wa)  #显示对象在内存中的地址
+# wa1 = Washer()
+# print(wa1)  #不同对象地址不同
+
+# 实例方法:由对象调用，至少有一个self参数，执行是，赋值给self
+class Washer:
+    height = 800
+    def wash(self):     #self代表对象本身
+        print("洗")
+        print(self)
+wa = Washer()
+print(wa)
+wa.wash()
 
 
 

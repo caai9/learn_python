@@ -226,3 +226,148 @@
 # print(count)
 
                 #day9
+# languages = ['Python','Java','C++']
+# languages.append('JavaScript')
+# print(languages)
+# languages.insert(1,'SQL')
+# print(languages)
+# if 'Java' in languages:
+#     languages.remove('Java')
+#     print(languages)
+# temp = languages.pop(1)
+# print(languages)
+# print(temp)
+# languages.clear()
+# print(languages)
+
+# languages = ['Python','Java','C++','Python']
+# languages.remove('Python')
+# print(languages)
+# del languages[1]
+# print(languages)
+
+# languages = ['Python','Java','C++','Python']
+# print(languages.index('C++'))
+# print(languages.index('Python'))
+# print(languages.index('Python',1))
+# print(languages.count('Python'))    #出现次数
+
+# languages.sort()    #排序
+# print(languages)
+# languages = ['Python','Java','C++','Python']
+# languages.reverse() #反转
+# print(languages)
+
+
+
+# items = []
+# for i in range(1,100):
+#     if i%3==0 or i%5==0:
+#         items.append(i)
+# print(items)
+#
+# items = [ i for i in range(1,100) if i%3==0 or i%5==0]
+# print(items)
+
+# nums1 = [1,2,3,4,5,6,7,8,9]
+# nums2 = [num**2 for num in nums1]
+# print(nums2)
+
+# nums1 = [2,4,55,66,34,677,234,12,4645]
+# nums2 = [num for num in nums1 if num>50]
+# print(nums2)
+
+# score = [[22,66,77],[66,77,88],[99,88,88]]
+# print(score[0])
+# print(score[0][2])
+
+# scores = []
+# for _ in range(5):
+#     temp = []
+#     for _ in range(3):
+#         score=int(input('请输入三个成绩\n'))
+#         temp.append(score)
+#     scores.append(temp)
+# print(scores)
+#
+# import random
+# scores = [[random.randrange(60,101) for  _ in range(3)] for  _ in range(5)]
+# print(scores)
+# import  random
+# scores = [random.randrange(1,34) for _ in range(6)]
+# blue = random.randrange(1,17)
+# scores.append(blue)
+#
+# for _ in range(7):
+#     k=int(input('请猜一个球\n'))
+#     if k in scores:
+#         scores.remove(k)
+# if scores == []:
+#     print("中了")
+
+# import random
+# red_balls = list(range(1,34))
+# selected_balls = []
+# for _ in range(6):
+#     index = random.randrange(len(red_balls))
+#     selected_balls.append(red_balls.pop(index))
+# selected_balls.sort()
+# for ball in selected_balls:
+#     print(f'\033[031m{ball:0>2d}\033[0m',end=' ')
+# blue_ball = random.randrange(1,17)
+# print(f'\033[034m{blue_ball:0>2d}\033[0m')
+
+# import random
+# red_balls = [i for i in range(1,34)]
+# blue_balls = [i for i in range(1,17)]
+#
+# selected_balls = random.sample(red_balls,6)     #sample():随机选取多个元素(不重复)
+# selected_balls.sort()
+# for ball in selected_balls:
+#     print(f'\033[031m{ball:0>2d}\033[0m', end=' ')
+# blue_ball  =random.choice(blue_balls)             #choice():随机选取一个元素
+# print(f'\033[034m{blue_ball:0>2d}\033[0m')
+
+
+
+# import random
+# n=int(input("请输入"))
+# red_balls = [i for i in range(1,34)]
+# blue_balls = [i for i in range(1,17)]
+# for _ in range(n):
+#     selected_balls = random.sample(red_balls,6)     #sample():随机选取多个元素(不重复)
+#     selected_balls.sort()
+#     for ball in selected_balls:
+#         print(f'\033[031m{ball:0>2d}\033[0m', end=' ')
+#     blue_ball  =random.choice(blue_balls)             #choice():随机选取一个元素
+#     print(f'\033[034m{blue_ball:0>2d}\033[0m')
+
+
+
+
+
+import random
+
+from rich.console import Console
+from rich.table import Table
+
+console = Console()
+
+n=int(input("请输入"))
+red_balls = [i for i in range(1,34)]
+blue_balls = [i for i in range(1,17)]
+table = Table(show_header=True)
+for col_name in ('序号','红球','蓝球'):
+    table.add_column(col_name,justify='center')
+for i in range(n):
+    selected_balls = random.sample(red_balls,6)     #sample():随机选取多个元素(不重复)
+    selected_balls.sort()
+    blue_ball  =random.choice(blue_balls)             #choice():随机选取一个元素
+    table.add_row(
+        str(i + 1),
+        f'[red]{" ".join([f"{ball:0>2d}"for ball in selected_balls])}[/red]',
+        f'[blue]{blue_ball:0>2d}[/blue]'
+    )
+console.print(table)
+
+                    # day10
