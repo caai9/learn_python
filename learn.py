@@ -932,14 +932,38 @@ from tkinter.font import names
 # print(wa1)  #不同对象地址不同
 
 # 实例方法:由对象调用，至少有一个self参数，执行是，赋值给self
-class Washer:
-    height = 800
-    def wash(self):     #self代表对象本身
-        print("洗")
-        print(self)
-wa = Washer()
-print(wa)
-wa.wash()
+# class Washer:
+#     height = 800
+#     def wash(self):     #self代表对象本身
+#         print("洗")
+#         print(self)
+# wa = Washer()
+# print(wa)
+# wa.wash()
 
+# # 实例属性
+# # 格式:    self.属性名
+# class Person:
+#     name = 'qwe'
+#     def introduce(self):
+#         print(self.name)
+# pe = Person()
+# pe.age = 18 #实例属性（只能由对象名访问）
+# print(pe.age)
+# pe.introduce()
+
+# 构造函数
+# __init__()
+# 作用:属性初始化或赋值,实例化对象时会自动调用
+class Test:
+    def __init__(self,names0):
+        print("qqqqqqqqqqq")
+        self.name = names0   #实例属性
+    def nnn(self):
+        print(self.name)
+te=Test('qwe')
+te.nnn()
+te1=Test('pl,')
+te1.nnn()
 
 

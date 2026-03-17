@@ -346,29 +346,123 @@
 
 
 
-import random
-
-from rich.console import Console
-from rich.table import Table
-
-console = Console()
-
-n=int(input("请输入"))
-red_balls = [i for i in range(1,34)]
-blue_balls = [i for i in range(1,17)]
-table = Table(show_header=True)
-for col_name in ('序号','红球','蓝球'):
-    table.add_column(col_name,justify='center')
-for i in range(n):
-    selected_balls = random.sample(red_balls,6)     #sample():随机选取多个元素(不重复)
-    selected_balls.sort()
-    blue_ball  =random.choice(blue_balls)             #choice():随机选取一个元素
-    table.add_row(
-        str(i + 1),
-        f'[red]{" ".join([f"{ball:0>2d}"for ball in selected_balls])}[/red]',
-        f'[blue]{blue_ball:0>2d}[/blue]'
-    )
-console.print(table)
+# import random
+#
+# from rich.console import Console
+# from rich.table import Table
+#
+# console = Console()
+#
+# n=int(input("请输入"))
+# red_balls = [i for i in range(1,34)]
+# blue_balls = [i for i in range(1,17)]
+# table = Table(show_header=True)
+# for col_name in ('序号','红球','蓝球'):
+#     table.add_column(col_name,justify='center')
+# for i in range(n):
+#     selected_balls = random.sample(red_balls,6)     #sample():随机选取多个元素(不重复)
+#     selected_balls.sort()
+#     blue_ball  =random.choice(blue_balls)             #choice():随机选取一个元素
+#     table.add_row(
+#         str(i + 1),
+#         f'[red]{" ".join([f"{ball:0>2d}"for ball in selected_balls])}[/red]',
+#         f'[blue]{blue_ball:0>2d}[/blue]'
+#     )
+# console.print(table)
 
 
                     # day10
+# t1 = (33,333,222,2123)
+# t2 = (9,99,8,84,45)
+# print(t2[:])
+# print((t1[1:3]))
+# for i in t1:
+#     print(i)
+# print(33 in t1)
+# print(33 in t2)
+# print(99 not in t2)
+# t3 = t1+t2
+# print(t3)
+#
+# t4=('g',)#定义单元素元组
+#
+# #解包
+# i,j,k,l=t1
+# print(i,j,k,l)
+#
+# z,x,*c = t2
+# print(z,x,c)
+
+# a=5
+# b=9
+# a,b = b,a#交换值
+# print(a,b)
+
+        #day11
+
+# s2='!'*3
+# print(s2)
+
+# print(ord('h')) #ord():获取编码
+# print(ord('乔'))
+# s='hello world'
+# print(len(s))
+
+# s = 'abc123456'
+# n = len(s)
+# print(s[0], s[-n])
+# for i in range(len(s)):
+#     print(s[i])
+# for i in s:
+    # print(i)
+
+# S=s.capitalize()    #首字母大写
+# print(S)
+# S0=s.title()        #每个单词首字母大写
+# print(S0)
+# S1 = s.upper()
+# print(S1)
+# s0 = s.lower()
+# print(s0)
+
+# print(s.find('34',0))
+# print(s.index('34',2))  #正向查找
+#
+# print(s.rfind('34',0))
+# print(s.rindex('34',0)) #反向查找
+
+
+# print(s.startswith('ab'))#是否以...开头
+# print(s.endswith('ab'))#是否以...结尾
+#
+# print(s.isdigit())  #判断是否完全以数字组成
+# print(s.isalpha())  #判断是否完全以字母组成
+# print(s.isalnum())  #判断是否完全以数字和字母组成
+
+
+# s0 = 'hello world'
+# print(s0.center(20,'*'))    #在左右添加*并补充成20字节,居中
+# print(s0.rjust(20,'*'))#将字符串 s0 右对齐 显示，总长度固定为 20 个字符；
+# # 如果 s0 的长度小于 20，左侧用空格补齐；如果 s0 长度≥20，则直接显示原字符串（不截断）。
+# print(s0.ljust(20,'*'))#左对齐
+# print('33'.zfill(5))#左侧补零至5个字节
+# print('-33'.zfill(5))#-0033
+
+
+# a=321
+# b=123
+# print('%d*%d=%d'%(a,b,a*b))
+
+# s1 = '      qwe       '
+# print(s1.strip())
+# s2 = '?qwe?'
+# print(s2.lstrip('?'))
+# print(s2.rstrip('?'))
+
+s='hello world'
+print(s.replace('l','zzz'))
+print(s.replace('l','zzz',1))
+
+k=s.split()     #拆分
+print(k)
+print('~'.join(k))  #用~合并
