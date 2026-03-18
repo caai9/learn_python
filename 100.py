@@ -459,10 +459,99 @@
 # print(s2.lstrip('?'))
 # print(s2.rstrip('?'))
 
-s='hello world'
-print(s.replace('l','zzz'))
-print(s.replace('l','zzz',1))
+# s='hello world'
+# print(s.replace('l','zzz'))
+# print(s.replace('l','zzz',1))
+#
+# k=s.split()     #拆分
+# print(k)
+# print('~'.join(k))  #用~合并
 
-k=s.split()     #拆分
-print(k)
-print('~'.join(k))  #用~合并
+            # day12
+set1 = {1,2,3,4,5,6,7}
+set2 = {2,4,6,8,10}
+# print(set1 & set2)  #交集
+# print(set1.intersection(set2))    #交集
+#
+# print(set1 | set2)  #并集
+# print(set1.union(set2))#并集
+#
+# print(set1 - set2)#差集
+# print(set1.difference(set2))#差集
+#
+# print(set1 ^ set2)#对称差
+# print(set1.symmetric_difference(set2))#对称差
+
+# print(set1<=set2)#判断set1是否为set2的子集
+# print(set1<set2)#判断set1是否为set2的真子集
+# print(set1.issubset(set2))#判断set1是否为set2的子集
+#
+# print(set1>set2)#判断set1是否为set2的超集
+# print(set1.issuperset(set2))#判断set1是否为set2的超集
+
+# set2.add(0) #添加
+# print(set2)
+# set2.discard(0) #删除
+# print(set2)
+# set2.clear()#清空
+# print(set2)
+# set1 = {'Python', 'C++', 'Java', 'Kotlin', 'Swift'}
+# for elem in set1:
+#     print(elem)
+
+# print(set1.isdisjoint(set2))#判断两个集合有没有相同的元素，如果没有相同元素，该方法返回True，否则该方法返回False
+#
+# fset1 =frozenset(range(1,6))    #不可变集合(除了不可以添加或删除，其他同集合)
+
+
+        #day13
+items = dict(zip('ABCDE','12345'))
+# print(items)
+#
+# for key in items:   #只对键进行遍历
+#     print(key)
+#
+# print(items.get('A'))
+# print(items.keys())#获取所有键
+# print(items.values())#获取所有值
+# print(items.items())#获取所有键值对
+
+# person1 = {'name': '王大锤', 'age': 55, 'height': 178}
+# person2 = {'age': 25, 'addr': '成都市武侯区科华北路62号1栋101'}
+# # person1.update(person2) #将person2中的键值对更新到person1中
+# person1 |= person2  #同update()
+# print(person1)  # {'name': '王大锤', 'age': 25, 'height': 178, 'addr': '成都市武侯区科华北路62号1栋101'}
+#
+# print(person1.popitem())#删除获得键和值
+
+
+
+# 输入一段话，统计每个英文字母出现的次数，按出现次数从高到低输出。
+# sentence = input('请输入一段话:')
+# counter = {}
+# for ch in sentence:
+#     if 'A' < ch <'Z' or 'a'<ch<'z':
+#         counter[ch] = counter.get(ch,0) + 1 #counter.get(ch,0):获取ch的值，若不存在则返回0
+# sorted_keys = sorted(counter, key=counter.get,reverse=True)#sorted(可迭代对象, key=排序依据, reverse=是否降序)
+# for key in sorted_keys:
+#     print(f'{key}出现了{counter[key]}次')
+
+
+
+# 在一个字典中保存了股票的代码和价格，找出股价大于100元的股票并创建一个新的字典。
+# stocks = {
+#     'AAPL': 191.88,
+#     'GOOG': 1186.96,
+#     'IBM': 149.24,
+#     'ORCL': 48.44,
+#     'ACN': 166.89,
+#     'FB': 208.09,
+#     'SYMC': 21.29
+# }
+# # dic = {}
+# # for key,value in stocks.items():
+# #     if value > 100:
+# #        dic[key] = value
+# # print(dic)
+# stocks2 = {key : value for key ,value in stocks.items() if value>100}
+# print(stocks2)
