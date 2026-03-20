@@ -1,4 +1,4 @@
-                # day5
+from math import degrees  # day5
 # weight =int( input('请输入体重'))
 # match weight:   #同C中的switch case
 #     case 200 : k=200
@@ -505,7 +505,7 @@ set2 = {2,4,6,8,10}
 
 
         #day13
-items = dict(zip('ABCDE','12345'))
+# items = dict(zip('ABCDE','12345'))
 # print(items)
 #
 # for key in items:   #只对键进行遍历
@@ -555,3 +555,145 @@ items = dict(zip('ABCDE','12345'))
 # # print(dic)
 # stocks2 = {key : value for key ,value in stocks.items() if value>100}
 # print(stocks2)
+
+
+
+            # day14
+
+# def accumulate(n):
+#     consequence=1
+#     for i in range(1,n+1):
+#         consequence*=i
+#     return consequence
+# consequence0 = accumulate(7)//(accumulate(3)*accumulate(4))
+# print(consequence0)
+
+# from math import factorial
+# print(factorial(7)//factorial(3)//factorial(4))
+
+
+            # day15
+
+# # 设计一个生成随机验证码的函数，验证码由数字和英文大小写字母构成，长度可以通过参数设置。
+# import random
+# import string
+#
+# ALL_CHARS = string.digits + string.ascii_letters #string.digits:所有数字形成的字符串，
+#                                                  # string.ascii_letters：大小写字母形成的字符串
+# def generate_code(code_len=4):
+#     k=random.sample(ALL_CHARS,code_len)
+#     return ''.join(k)   #拼接
+# for _ in range(5):
+#     print(generate_code(6))
+
+
+
+
+#设计一个判断给定的大于1的正整数是不是质数的函数。
+#质数是只能被1和自身整除的正整数（大于1），如果一个大于 1 的正整数N是质数，
+#那就意味着在 2 到N-1之间都没有它的因子。
+
+# def zhi_shu():
+#     num = int(input('请输入\n'))
+#     isprime = 1
+#     for i in range(2,num):
+#         if num % i != 0:
+#             isprime = 1
+#         else:
+#             isprime = 0
+#             break
+#     if isprime == 1:
+#         print('是质数')
+#     else:
+#         print('不是质数')
+# zhi_shu()
+
+
+# def is_prime(num:int) ->bool:
+#     for i in range(2,int(num ** 0.5)+1):
+#         if num % i == 0:
+#             return False
+#     return True
+# print(is_prime(9))
+
+
+
+
+
+
+# def gcd(x,y):
+#     for i in range(min(x,y),0,-1):
+#         if x % i ==0 and y % i == 0:
+#             return i
+#
+# def lcm(x,y):
+#     for i in range(max(x,y), x * y + 1):
+#         if i % x == 0 and i % y == 0 :
+#             return i
+#
+# print(lcm(4,3))
+# print(gcd(9,6))
+
+
+
+# def lcm(x:int,y:int)->int:
+#     return x*y//gcd(x,y)
+# def gcd(x:int,y:int)->int:
+#     while y%x!=0:
+#         x,y = y%x,x
+#     return  x
+# print(lcm(4,3))
+# print(gcd(9,6))
+
+
+
+
+
+def sample_mean(*x):
+    x_total = sum(x)
+    y = x_total / len(x)
+    return y
+
+def sample_variance(*x):
+    x_total = 0
+    for i in range(len(x)):
+        x_total += (x[i]-sample_mean(*x))**2
+    y = x_total/(len(x)-1)
+    return y
+
+def sample_standard_deviation(*x):
+    y =sample_variance(*x)**0.5
+    return y
+
+def coefficient_of_sample_variation(*x):
+    y = sample_standard_deviation(*x)/sample_mean(*x)
+    return y
+
+def ji_cha(*x):
+    y = max(x)-min(x)
+    return y
+
+def zhong_wei_shu(*x):
+    if len(x) % 2 == 1:
+        y1  = x[len(x)//2]
+        return y1
+    elif len(x) % 2 == 0:
+        y1 = x[len(x)//2-1]
+        y2 = x[len(x)//2]
+        y =(y1+y2)/2
+        return y
+
+def total(*x):
+    y0 = sample_mean(*x)
+    y1 = sample_variance(*x)
+    y2 = sample_standard_deviation(*x)
+    y3 = coefficient_of_sample_variation(*x)
+    y4 = ji_cha(*x)
+    y5 = zhong_wei_shu(*x)
+    print(f"样本均值:{y0},样本方差:{y1},样本标准差:{y2},变异系数:{y3},极差:{y4},中位数:{y5}")
+    return y0,y1,y2,y3,y4,y5
+total(4,5,67,8,9,4,9,876,5,5,4,6)
+
+
+
+                #day16

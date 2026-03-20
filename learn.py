@@ -955,15 +955,81 @@ from tkinter.font import names
 # 构造函数
 # __init__()
 # 作用:属性初始化或赋值,实例化对象时会自动调用
-class Test:
-    def __init__(self,names0):
-        print("qqqqqqqqqqq")
-        self.name = names0   #实例属性
-    def nnn(self):
-        print(self.name)
-te=Test('qwe')
-te.nnn()
-te1=Test('pl,')
-te1.nnn()
+# class Test:
+#     def __init__(self,names0):
+#         print("qqqqqqqqqqq")
+#         self.name = names0   #实例属性
+#     def nnn(self):
+#         print(self.name)
+# te=Test('qwe')
+# te.nnn()
+# te1=Test('pl,')
+# te1.nnn()
+
+# 析构函数(回收内存)__del__()
+# 删除对象时，解释器会默认调用
+
+# class Person():
+#     def __init__(self):
+#         print('init:')
+#     def __del__(self):
+#         print('被销毁了')
+# pe = Person()
+# del pe      #会立即调用__del__()
+# print('最后一句')
+# print('最后一句')
+# #正常运行时，不会调用__del__(),但对象执行结束后，系统会自动调用
+# #__del__():表示程序或函数以及全部执行完毕
+#
+
+
+
+
+# 面向对象的三大特性:封装,继承,多态
+# 封装:只允许在类的内部使用，隐藏属性
+# 在属性名或方法前加  __
+# class Person:
+#     name = 'qweee'
+#     __age = '38'
+#     _sex  = 'man'
+#     def introduce(self):
+#         Person.__age = 22
+#         print(f'{Person.__age}')
+# pe = Person()
+# print(pe._sex)
+# #外部访问方法:
+# # 1. _类名__属性名
+# # print(pe._Person__age)
+# # pe._Person__age = 213
+#
+# # 2.    def introduce(self):
+# #         print(f'{Person.__age}')
+# pe.introduce()
+
+# XXX:普通属性或方法
+# _XXX:私有属性,无法在另一个.py里文件导入
+# __XXX:隐藏属性
+
+# 调用隐藏方法
+# class lll:
+#     def __pq(self):
+#         print('asd')
+#     def dd(self):
+#         lll.__pq(self)
+# l=lll()
+# l.dd()
+#
+# class lll:
+#     def __pq(self):
+#         print('asd')
+#     def dd(self):
+#         self.__pq()
+# l=lll()
+# l.dd()
+
+
+
+
+
 
 
