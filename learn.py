@@ -1032,4 +1032,31 @@ from tkinter.font import names
 
 
 
+# # 继承(让类和类之间转变为父子关系，子类默认继承父亲的属性和方法)
+# class Person:#父类
+#     name = 'qqq'
+#     def m(self):
+#         print(self.name)
+# class person(Person):#子类
+#     pass        #占位符，类后不写任何东西，会自行跳过,不会报错
+#
+# pe = Person()
+# pe.m()
 
+# 重写:在子类中定义与父类相同名称的方法
+# 扩展
+# 1.父类名.方法名(self)
+# 2.super().方法名()
+# 3.super(子类名,self)。方法名()
+class Person:
+    def money(self):
+        print('qqqq')
+class Man(Person):
+    # def money(self):              #覆盖
+    #     print('aaa')
+    def money(self):
+        # Person.money(self)          #拓展
+        super().money()
+        print('aaa')
+man = Man()
+man.money()

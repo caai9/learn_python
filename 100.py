@@ -649,51 +649,109 @@ set2 = {2,4,6,8,10}
 
 
 
-def sample_mean(*x):
-    x_total = sum(x)
-    y = x_total / len(x)
-    return y
-
-def sample_variance(*x):
-    x_total = 0
-    for i in range(len(x)):
-        x_total += (x[i]-sample_mean(*x))**2
-    y = x_total/(len(x)-1)
-    return y
-
-def sample_standard_deviation(*x):
-    y =sample_variance(*x)**0.5
-    return y
-
-def coefficient_of_sample_variation(*x):
-    y = sample_standard_deviation(*x)/sample_mean(*x)
-    return y
-
-def ji_cha(*x):
-    y = max(x)-min(x)
-    return y
-
-def zhong_wei_shu(*x):
-    if len(x) % 2 == 1:
-        y1  = x[len(x)//2]
-        return y1
-    elif len(x) % 2 == 0:
-        y1 = x[len(x)//2-1]
-        y2 = x[len(x)//2]
-        y =(y1+y2)/2
-        return y
-
-def total(*x):
-    y0 = sample_mean(*x)
-    y1 = sample_variance(*x)
-    y2 = sample_standard_deviation(*x)
-    y3 = coefficient_of_sample_variation(*x)
-    y4 = ji_cha(*x)
-    y5 = zhong_wei_shu(*x)
-    print(f"样本均值:{y0},样本方差:{y1},样本标准差:{y2},变异系数:{y3},极差:{y4},中位数:{y5}")
-    return y0,y1,y2,y3,y4,y5
-total(4,5,67,8,9,4,9,876,5,5,4,6)
+# def sample_mean(*x):
+#     x_total = sum(x)
+#     y = x_total / len(x)
+#     return y
+#
+# def sample_variance(*x):
+#     x_total = 0
+#     for i in range(len(x)):
+#         x_total += (x[i]-sample_mean(*x))**2
+#     y = x_total/(len(x)-1)
+#     return y
+#
+# def sample_standard_deviation(*x):
+#     y =sample_variance(*x)**0.5
+#     return y
+#
+# def coefficient_of_sample_variation(*x):
+#     y = sample_standard_deviation(*x)/sample_mean(*x)
+#     return y
+#
+# def ji_cha(*x):
+#     y = max(x)-min(x)
+#     return y
+#
+# def zhong_wei_shu(*x):
+#     if len(x) % 2 == 1:
+#         y1  = x[len(x)//2]
+#         return y1
+#     elif len(x) % 2 == 0:
+#         y1 = x[len(x)//2-1]
+#         y2 = x[len(x)//2]
+#         y =(y1+y2)/2
+#         return y
+#
+# def total(*x):
+#     y0 = sample_mean(*x)
+#     y1 = sample_variance(*x)
+#     y2 = sample_standard_deviation(*x)
+#     y3 = coefficient_of_sample_variation(*x)
+#     y4 = ji_cha(*x)
+#     y5 = zhong_wei_shu(*x)
+#     print(f"样本均值:{y0},样本方差:{y1},样本标准差:{y2},变异系数:{y3},极差:{y4},中位数:{y5}")
+#     return y0,y1,y2,y3,y4,y5
+# total(4,5,67,8,9,4,9,876,5,5,4,6)
 
 
 
                 #day16
+
+# def calc(init_value,op_func,*args,**kwargs):
+#     items = list(args)+list(kwargs.values())
+#     result = init_value
+#     for item in items:
+#         if type(item) in (int,float):
+#             result  = op_func(result,item)
+#     return result
+#
+# def add(x,y):
+#     return x+y
+# def mul(x,y):
+#     return x*y
+# print(calc(0,add,1,2,3,4))
+# print(calc(1,mul,1,2,3,4))
+
+
+# def is_even(num):
+#     return num%2==0
+# def square(num):
+#     return num**2
+# old_nums = [35,12,8,99,60,52]
+# new_nums = list(map(square,filter(is_even,old_nums)))   #filter:筛选;map:对所有元素执行操作
+# print(new_nums)
+
+# old_nums = [35,12,8,99,60,52]
+# new_nums = [i**2 for i in old_nums if i %2==0]
+# print(new_nums)
+
+
+# old_strings = ['in', 'apple', 'zoo', 'waxberry', 'pear']
+# new_strings = sorted(old_strings)
+# print(new_strings)  # ['apple', 'in', 'pear', waxberry', 'zoo']
+#
+# old_strings = ['in', 'apple', 'zoo', 'waxberry', 'pear']
+# new_strings = sorted(old_strings,key=len)
+# print(new_strings)  # ['apple', 'in', 'pear', waxberry', 'zoo']
+
+
+# # lambda :匿名函数
+# old_nums = [35,12,8,99,60,52]
+# new_nums = list(map(lambda x:x**2,filter(lambda x:x%2==0,old_nums)))
+# print(new_nums)
+
+
+# import functools
+#
+# int2 = functools.partial(int ,base = 2)
+# int8 = functools.partial(int ,base = 8)
+# int16 = functools.partial(int ,base = 16)
+# print(int('1001'))    # 1001
+# print(int2('1001'))   # 9
+# print(int8('1001'))   # 513
+# print(int16('1001'))  # 4097
+
+
+
+                        #day17
