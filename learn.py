@@ -1048,15 +1048,32 @@ from tkinter.font import names
 # 1.父类名.方法名(self)
 # 2.super().方法名()
 # 3.super(子类名,self)。方法名()
-class Person:
-    def money(self):
-        print('qqqq')
-class Man(Person):
-    # def money(self):              #覆盖
-    #     print('aaa')
-    def money(self):
-        # Person.money(self)          #拓展
-        super().money()
-        print('aaa')
-man = Man()
-man.money()
+# class Person:
+#     def money(self):
+#         print('qqqq')
+# class Man(Person):
+#     # def money(self):              #覆盖
+#     #     print('aaa')
+#     def money(self):
+#         # Person.money(self)          #拓展
+#         super().money()
+#         print('aaa')
+# man = Man()
+# man.money()
+
+
+
+# 多继承(子类具有多个父类,有所有父类的属性和方法,若拥有同名属性或方法，优先调用自己的，其次是调用第一个父类)
+class QQQ:
+    lll = 'qw'
+    def p(self):
+        print('zx')
+class AAA:
+    ppp = 'sss'
+    def p(self):
+        print('x')
+class ZZZ(QQQ,AAA):
+    pass
+z = ZZZ()
+# print(z.lll,z.ppp)
+z.p()

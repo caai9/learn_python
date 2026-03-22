@@ -1,3 +1,4 @@
+import time
 from math import degrees  # day5
 # weight =int( input('请输入体重'))
 # match weight:   #同C中的switch case
@@ -755,3 +756,37 @@ set2 = {2,4,6,8,10}
 
 
                         #day17
+# import time
+# def record_time(func):
+#     def wrapper(*args,**kwargs):
+#         start = time.time()
+#         result = func(*args,**kwargs)
+#         end = time.time()
+#         print(f'{func.__name__},{end-start:.9f}')
+#         return result
+#     return wrapper
+# @record_time
+# def add(x,y):
+#     time.sleep(0.001)
+#     return x+y
+# add(5,6)
+# # time0 = record_time(add)
+# # time0(5,6)
+
+# def fac(num):
+#     if num == 1:
+#         return 1
+#     else:
+#         return num * fac(num-1)
+# print(fac(3))
+
+# from functools import lru_cache
+# @lru_cache()        #缓存该函数的执行结果从而避免在递归调用的过程中产生大量的重复运算
+# def fib1(num):
+#     if num == 1 or num ==2:
+#         return 1
+#     return fib1(num-1)+fib1(num-2)
+# for i in range(1,51):
+#     print(fib1(i))
+
+                            # day18
