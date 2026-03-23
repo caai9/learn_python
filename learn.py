@@ -1063,17 +1063,70 @@ from tkinter.font import names
 
 
 
-# 多继承(子类具有多个父类,有所有父类的属性和方法,若拥有同名属性或方法，优先调用自己的，其次是调用第一个父类)
-class QQQ:
-    lll = 'qw'
-    def p(self):
-        print('zx')
-class AAA:
-    ppp = 'sss'
-    def p(self):
-        print('x')
-class ZZZ(QQQ,AAA):
-    pass
-z = ZZZ()
-# print(z.lll,z.ppp)
-z.p()
+# # 多继承(子类具有多个父类,有所有父类的属性和方法,若拥有同名属性或方法，优先调用自己的，其次是调用第一个父类)
+# class QQQ:
+#     lll = 'qw'
+#     def p(self):
+#         print('zx')
+# class AAA:
+#     ppp = 'sss'
+#     def p(self):
+#         print('x')
+# class ZZZ(QQQ,AAA):
+#     pass
+# z = ZZZ()
+# # print(z.lll,z.ppp)
+# z.p()
+
+
+#多态
+# 同一种行为具有不同的表现形式
+# print(10+10)        #20
+# print('10'+'10')    #1010
+# print('10+10')      #10+10
+
+# class Animal:
+#     def shout(self):
+#         print('叫')
+#
+# class Cat(Animal):
+#     def shout(self):
+#         print('喵')
+# class Dog(Animal):
+#     def shout(self):
+#         print('汪')
+# # cat = Cat()
+# # cat.shout()
+# # dog = Dog()
+# # dog.shout()
+#
+# def test(obj):
+#     obj.shout()
+# cat = Cat()
+# dog = Dog()
+# test(cat)
+# test(dog)
+
+
+# 静态方法（与类无关）
+# @staticmethod来进行修饰，无self和cls参数的限制,可以通过类名进行访问
+# class qqq:
+#     @staticmethod
+#     def aaa(num):
+#         print(num)
+# l = qqq()
+# l.aaa(2)
+# qqq.aaa(00)
+
+
+# # 类方法
+# # @classmethod,第一个参数必须是类对象，用cls表示
+# class qwe:
+#     n = 2
+#     @classmethod
+#     def l(cls):
+#         print('l')
+#         print(cls.n)
+#         print(cls)  #代表类对象本身
+# w = qwe
+# w.l()

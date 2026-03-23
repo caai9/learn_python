@@ -790,3 +790,62 @@ set2 = {2,4,6,8,10}
 #     print(fib1(i))
 
                             # day18
+
+
+# import time
+#
+# class Clock:
+#     def __init__(self,hour = 0,minute = 0,second=0):
+#         self.hour = hour
+#         self.min = minute
+#         self.sec = second
+#
+#     def run(self):
+#         self.sec +=1
+#         if self.sec ==60:
+#             self.sec=0
+#             self.min+=1
+#             if self.min==60:
+#                 self.min = 0
+#                 self.hour+=1
+#                 if self.hour==24:
+#                     self.hour=0
+#     def show(self):
+#         return f'{self.hour:0>2d}:{self.min:0>2d}:{self.sec:0>2d}'
+#
+# clock = Clock()
+# while True:
+#     print(clock.show())
+#     time.sleep(1)
+#     clock.run()
+
+
+# class Point:
+#     def __init__(self,x=0,y=0):
+#         self.x = x
+#         self.y = y
+#     def qiu(self,x,y):
+#         self.x =int(input('请输入'))
+#         self.y =int(input('请输入'))
+#         return ((self.x-x)**2+(self.y-y)**2)**0.5
+#
+# point = Point()
+# print(point.qiu(5,6))
+
+
+class Point:
+    def __init__(self,x=0,y=0):
+        self.x = x
+        self.y = y
+    def distance_to(self,other):
+        dx = self.x - other.x
+        dy = self.y - other.y
+        return (dx*dx+dy*dy)**0.5
+    def __str__(self):
+        return f'({self.x},{self.y})'
+
+p1 = Point(4,6)
+p2 = Point(6,8)
+print(p1)
+print(p2)
+print(p1.distance_to(p2))
