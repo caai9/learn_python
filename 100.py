@@ -833,19 +833,204 @@ set2 = {2,4,6,8,10}
 # print(point.qiu(5,6))
 
 
-class Point:
-    def __init__(self,x=0,y=0):
-        self.x = x
-        self.y = y
-    def distance_to(self,other):
-        dx = self.x - other.x
-        dy = self.y - other.y
-        return (dx*dx+dy*dy)**0.5
-    def __str__(self):
-        return f'({self.x},{self.y})'
+# class Point:
+#     def __init__(self,x=0,y=0):
+#         self.x = x
+#         self.y = y
+#     def distance_to(self,other):
+#         dx = self.x - other.x
+#         dy = self.y - other.y
+#         return (dx*dx+dy*dy)**0.5
+#     def __str__(self):
+#         return f'({self.x},{self.y})'
+#
+# p1 = Point(4,6)
+# p2 = Point(6,8)
+# print(p1)
+# print(p2)
+# print(p1.distance_to(p2))
 
-p1 = Point(4,6)
-p2 = Point(6,8)
-print(p1)
-print(p2)
-print(p1.distance_to(p2))
+
+                                    #day19
+# class Student:
+#     def __init__(self,name,age):
+#         self.__name = name
+#         self.__age = age
+#
+#     def study(self,courage_name):
+#         print(f'{self.__name},{courage_name}')
+# stu = Student('qwe',22)
+# stu.study('eee')
+#
+#
+# class Student:
+#     __slots__ = ('name', 'age') #使类无法进行外部添加属性
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     def study(self, courage_name):
+#         print(f'{self.name},{courage_name}')
+#
+#
+# stu = Student('qwe', 22)
+# stu.study('eee')
+
+
+                                #day20
+
+#     # 扑克游戏
+# from enum import Enum
+#
+# class Suite(Enum):
+#     SPADE,HEART,CLUB,DIMOND =   range(4)
+#
+# # for suite in Suite:
+# #     print(f'{suite}:{suite.value}')
+#
+# class Card:
+#     def __init__(self,suite,face):
+#         self.suite = suite
+#         self.face =  face
+#     def __repr__(self):
+#         suites = '♠♥♣♦'
+#         faces = ['', 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+#         return  f'{suites[self.suite.value]}{faces[self.face]}'
+#     def __lt__(self,other):
+#         if self.suite == other.suite:
+#             return self.face < other.face
+#         return self.suite.value < other.suite.value
+#
+# # card1 =Card(Suite.SPADE,5)
+# # card2 =Card(Suite.HEART,13)
+# # print(card1)
+# # print(card2)
+#
+# import random
+#
+# class Poker:
+#     def __init__(self):
+#         self.cards = [Card(suite,face)
+#                       for suite in Suite
+#                       for face in range(1,14)]
+#         self.current = 0
+#
+#     def shuffle(self):
+#         self.current = 0
+#         random.shuffle(self.cards)
+#
+#     def deal(self):
+#         card = self.cards[self.current]
+#         self.current +=1
+#         return card
+#     @property
+#     def has_next(self):
+#         return self.current<len(self.cards)
+#
+# # poker = Poker()
+# # print(poker.cards)
+# # poker.shuffle()
+# # print(poker.cards)
+#
+#
+# class Player:
+#     def __init__(self,name):
+#         self.name = name
+#         self.cards = []
+#     def get_one(self,card):
+#         self.cards.append(card)
+#     def arrange(self):
+#         self.cards.sort()
+#
+# poker = Poker()
+# poker.shuffle()
+# players = [Player('东邪'), Player('西毒'), Player('南帝'), Player('北丐')]
+# for _ in range(13):
+#     for player in players:
+#         player.get_one(poker.deal())
+#
+# for player in players:
+#      player.arrange()
+#      print(f'{player.name}:',end=' ')
+#      print(player.cards)
+
+
+#     # 工资结算系统
+#
+# class Employee:
+#     def __init__(self,work_time=0):
+#         self.monthly_salary = 0
+#         self.work_time = work_time
+#     def moon_money(self):
+#         return f'{self.monthly_salary}'
+#
+# class Department_Manager(Employee):
+#     def __init__(self):
+#         super().__init__()
+#         self.monthly_salary = 15000
+#
+# class Programmer(Employee):
+#     def __init__(self,work_time):
+#         super().__init__(work_time)
+#
+#     def moon_money(self):
+#         self.monthly_salary = 200 * self.work_time
+#         return super().moon_money()
+#
+# class Salesperson(Employee):
+#     def __init__(self,sales_volume):
+#         super().__init__()
+#         self.sales_volume = sales_volume
+#     def moon_money(self):
+#         self.monthly_salary = 1800 + self.sales_volume*0.05
+#         return super().moon_money()
+# mana = Department_Manager()
+# print(mana.moon_money())
+#
+# pro = Programmer(200)
+# print(pro.moon_money())
+#
+# sal = Salesperson(180000)
+# print(sal.moon_money())
+
+
+
+
+
+from abc import ABCMeta,abstractmethod
+
+class Employee(metaclass=ABCMeta):
+
+    def __init__(self,name):
+        self.name = name
+
+    @abstractmethod
+    def get_salary(self):
+        pass
+
+class Manager(Employee):
+    def get_salary(self):
+        return 15000.0
+
+class Programmer(Employee):
+    def __init__(self,name,working_hour=0):
+        super().__init__(name)
+        self.working_hour = working_hour
+
+    def get_salary(self):
+        return 200 * self.working_hour
+
+class Salesman(Employee):
+    def __init__(self,name,sales=0):
+        super().__init__(name)
+        self.sales = sales
+
+    def get_salary(self):
+        return 1800 + self.sales * 0.05
+emps = [Manager('刘备'), Programmer('诸葛亮'), Manager('曹操'), Programmer('荀彧'), Salesman('张辽')]
+for emp in emps:
+    if isinstance(emp,Programmer):      #isinstance(对象, 类)，判断一个对象是否属于指定的类（或其子类）
+        emp.working_hour = int(input(f'请输入{emp.name}本月工作时间:'))
+    elif isinstance(emp,Salesman):
+        emp.sales = float(input(f'请输入{emp.name}本月销售量:'))
+    print(f'{emp.name}本月工资为:{emp.get_salary():.2f}元')
