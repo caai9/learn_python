@@ -997,40 +997,140 @@ set2 = {2,4,6,8,10}
 
 
 
-from abc import ABCMeta,abstractmethod
+# from abc import ABCMeta,abstractmethod
+#
+# class Employee(metaclass=ABCMeta):
+#
+#     def __init__(self,name):
+#         self.name = name
+#
+#     @abstractmethod
+#     def get_salary(self):
+#         pass
+#
+# class Manager(Employee):
+#     def get_salary(self):
+#         return 15000.0
+#
+# class Programmer(Employee):
+#     def __init__(self,name,working_hour=0):
+#         super().__init__(name)
+#         self.working_hour = working_hour
+#
+#     def get_salary(self):
+#         return 200 * self.working_hour
+#
+# class Salesman(Employee):
+#     def __init__(self,name,sales=0):
+#         super().__init__(name)
+#         self.sales = sales
+#
+#     def get_salary(self):
+#         return 1800 + self.sales * 0.05
+# emps = [Manager('刘备'), Programmer('诸葛亮'), Manager('曹操'), Programmer('荀彧'), Salesman('张辽')]
+# for emp in emps:
+#     if isinstance(emp,Programmer):      #isinstance(对象, 类)，判断一个对象是否属于指定的类（或其子类）
+#         emp.working_hour = int(input(f'请输入{emp.name}本月工作时间:'))
+#     elif isinstance(emp,Salesman):
+#         emp.sales = float(input(f'请输入{emp.name}本月销售量:'))
+#     print(f'{emp.name}本月工资为:{emp.get_salary():.2f}元')
 
-class Employee(metaclass=ABCMeta):
 
-    def __init__(self,name):
-        self.name = name
 
-    @abstractmethod
-    def get_salary(self):
-        pass
+                                    # day21
+# file = open('致橡树.txt','r',encoding='utf-8')
+# # print(file.read())
+# # file.close()
+#
+# # for line in file:
+# #     print(line,end=' ')
+# # file.close()
+#
+# lines = file.readline()
+# for line in lines:
+#     print(line,end=' ')
+# file.close()
 
-class Manager(Employee):
-    def get_salary(self):
-        return 15000.0
 
-class Programmer(Employee):
-    def __init__(self,name,working_hour=0):
-        super().__init__(name)
-        self.working_hour = working_hour
+# file = open('致橡树.txt','a',encoding='utf-8')
+# file.write('\n标题:《致橡树》')
+# file.write('\n作者:舒婷')
+# file.write('\n时间:1977年3月')
+# file.close()
 
-    def get_salary(self):
-        return 200 * self.working_hour
+# file = None
+# try:
+#     file = open('致橡树.txt','r',encoding='utf-8')
+#     print(file.read())
+# except FileNotFoundError:
+#     print('无法打开指定的文件!')
+# except LookupError:
+#     print('指定了未知的编码!')
+# except UnicodeDecodeError:
+#     print('读取文件时解码错误!')
+# finally:
+#     if file:
+#         file.close()
 
-class Salesman(Employee):
-    def __init__(self,name,sales=0):
-        super().__init__(name)
-        self.sales = sales
 
-    def get_salary(self):
-        return 1800 + self.sales * 0.05
-emps = [Manager('刘备'), Programmer('诸葛亮'), Manager('曹操'), Programmer('荀彧'), Salesman('张辽')]
-for emp in emps:
-    if isinstance(emp,Programmer):      #isinstance(对象, 类)，判断一个对象是否属于指定的类（或其子类）
-        emp.working_hour = int(input(f'请输入{emp.name}本月工作时间:'))
-    elif isinstance(emp,Salesman):
-        emp.sales = float(input(f'请输入{emp.name}本月销售量:'))
-    print(f'{emp.name}本月工资为:{emp.get_salary():.2f}元')
+# class InputError(ValueError):
+#     """自定义异常类型"""
+#     pass
+#
+# def fac(num):
+#     if num <0 :
+#         raise InputError('只能计算非负整数的阶乘')
+#     if num in (0,1):
+#         return 1
+#     return num * fac(num - 1)
+#
+# flag = True
+# while flag:
+#     num = int(input('n= '))
+#     try:
+#         print(f'{num}! = {fac(num)}')   #若此处fac(num)抛出异常，则会被下面的Except捕获，才会进一步执行except下面的代码
+#         flag = False
+#     except InputError as err:
+#         print(err)
+
+
+
+
+
+# try:
+#     with open('致橡树.txt','r',encoding='utf-8') as file:
+#         print(file.read())
+# except FileNotFoundError:
+#     print('无法打开指定的文件!')
+# except LookupError:
+#     print('指定了未知的编码!')
+# except UnicodeDecodeError:
+#     print('读取文件时解码错误!')
+
+
+# try:
+#     with open('guido。jpg','rb') as file1:
+#         data = file1.read()
+#     with open('吉多.jpg','wb') as file2:
+#         file2.write(data)
+# except FileNotFoundError:
+#     print('指定的文件无法打开')
+# except IOError:
+#     print('读写文件时出现错误')
+# print('程序执行结束')
+
+
+# try:
+#     with open('guido.jpg','rb') as file1,open('吉多.jpg','wb') as file2:
+#         data = file1.read(512)
+#         while data:
+#             file2.write(data)
+#             data = file1.read()
+# except FileNotFoundError:
+#     print('指定的文件无法打开')
+# except IOError:
+#     print('读写文件时出现错误')
+# print('程序执行完成')
+
+
+                                    #day22
