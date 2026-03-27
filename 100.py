@@ -1134,3 +1134,77 @@ set2 = {2,4,6,8,10}
 
 
                                     #day22
+# JSON
+# import json
+# my_dict={
+#     "name":"周星驰",
+#     "age":40,
+#     "friends":["汪东城","白远方"],
+#     "cars" : [
+#         {'brand': 'BWM',  "max_speed": 240},
+#         {'brand': 'Audi', 'max_speed': 280},
+#         {'brand': 'Benz', 'max_speed': 280}
+#
+#     ]
+# }
+# # print(json.dumps(my_dict))
+# with open('data.json','w') as file:
+#     json.dump(my_dict,file)
+#
+# with open('data.json','r') as file:
+#     my_dict = json.load(file)
+#     print(type(my_dict))
+#     print(my_dict)
+
+# import requests
+#
+# resp = requests.get('https://api.tianapi.com/guonei/?key=APIKey&num=10')
+# if resp.status_code == 200:
+#     data_model = resp.json()
+#     for news in data_model['newslist']:
+#         print(news['title'])
+#         print(news['url'])
+#         print('-'*60)
+
+# import requests
+# from lxml import etree
+# url = 'https://www.baidu.com'
+# resp = requests.get(url)
+# resp.encoding = 'utf-8'
+# if resp.status_code == 200:
+#     # print(resp.text)
+#     html = etree.HTML(resp.text)
+#     title = html.xpath('//title/text()')
+#     print('标题:',title[0])
+
+import requests
+from lxml import etree
+from PIL import Image
+from io import BytesIO
+
+headers = {
+    'User-Agent' : "Mozilla/5.0"
+}
+url = 'https://ys.mihoyo.com/'
+resp = requests.get(url,headers=headers)
+resp.encoding = 'utf-8'
+if resp.status_code == 200:
+    html = etree.HTML(resp.text)
+    title = html.xpath('//title/text()')
+    print(title[0])
+    img_list = html.xpath('//img/@src')
+    if img_list:
+        img_src = img_list[0]
+
+        if img_src.startswith('//'):
+            img_url = 'https:' + img_src
+        else:
+            img_url = img_src
+        print(img_url)
+
+        img_resp = requests.get(img_url,headers=headers)
+        img = Image.open(BytesIO(img_resp.content))
+        img.show()
+    else:
+        print("未找到图片")
+                            # day23
