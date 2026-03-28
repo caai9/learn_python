@@ -1134,7 +1134,7 @@ set2 = {2,4,6,8,10}
 
 
                                     #day22
-# JSON
+                                    # JSON
 # import json
 # my_dict={
 #     "name":"周星驰",
@@ -1177,34 +1177,56 @@ set2 = {2,4,6,8,10}
 #     title = html.xpath('//title/text()')
 #     print('标题:',title[0])
 
-import requests
-from lxml import etree
-from PIL import Image
-from io import BytesIO
-
-headers = {
-    'User-Agent' : "Mozilla/5.0"
-}
-url = 'https://ys.mihoyo.com/'
-resp = requests.get(url,headers=headers)
-resp.encoding = 'utf-8'
-if resp.status_code == 200:
-    html = etree.HTML(resp.text)
-    title = html.xpath('//title/text()')
-    print(title[0])
-    img_list = html.xpath('//img/@src')
-    if img_list:
-        img_src = img_list[0]
-
-        if img_src.startswith('//'):
-            img_url = 'https:' + img_src
-        else:
-            img_url = img_src
-        print(img_url)
-
-        img_resp = requests.get(img_url,headers=headers)
-        img = Image.open(BytesIO(img_resp.content))
-        img.show()
-    else:
-        print("未找到图片")
+# import requests
+# from lxml import etree
+# from PIL import Image
+# from io import BytesIO
+#
+# headers = {
+#     'User-Agent' : "Mozilla/5.0"
+# }
+# url = 'https://ys.mihoyo.com/'
+# resp = requests.get(url,headers=headers)
+# resp.encoding = 'utf-8'
+# if resp.status_code == 200:
+#     html = etree.HTML(resp.text)
+#     title = html.xpath('//title/text()')
+#     print(title[0])
+#     img_list = html.xpath('//img/@src')
+#     if img_list:
+#         img_src = img_list[0]
+#
+#         if img_src.startswith('//'):
+#             img_url = 'https:' + img_src
+#         else:
+#             img_url = img_src
+#         print(img_url)
+#
+#         img_resp = requests.get(img_url,headers=headers)
+#         img = Image.open(BytesIO(img_resp.content))
+#         img.show()
+#     else:
+#         print("未找到图片")
                             # day23
+                            # csv
+# import csv
+# import random
+#
+# with open('scores.csv','w',encoding='utf-8',newline='') as file:
+#     writer = csv.writer(file,delimiter='|',quoting=csv.QUOTE_ALL)
+#     writer.writerow(['姓名','语文','数学','英语'])
+#     names = ['关羽','张飞','赵云','马超','黄忠']
+#     for name in names:
+#         scores = [random.randrange(50,101) for _ in range(3)]
+#         scores.insert(0,name)
+#         writer.writerow(scores)
+
+# import csv
+# with open('scores.csv','r',encoding='utf-8') as file :
+#     reader = csv.reader(file,delimiter=',')
+#     for data_list in reader:#将每行取成一个列表
+#         print(reader.line_num,end='\t')
+#         for elem in data_list:
+#             print(elem,end='\t')
+#         print()
+
