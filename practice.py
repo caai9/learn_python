@@ -32,27 +32,27 @@
 #     print(tem*9/5+32)
 # else:
 #     print((tem-32)*5/9)
-# 4. 简易计算器
-import string
-cal = input('请输入')
-sign=''
-for i in range(len(cal)):
-    if cal[i] not in string.digits:
-        sign = cal[i]
-        break
-if sign == '+':
-    num1,num2=cal.split('+')
-    print(f'{int(num1)}+{int(num2)}={int(num1)+int(num2)}')
-elif sign == '-':
-    num1, num2 = cal.split('-')
-    print(f'{int(num1)}-{int(num2)}={int(num1)-int(num2)}')
-elif sign == '*':
-    num1, num2 = cal.split('*')
-    print(f'{int(num1)}*{int(num2)}={int(num1) * int(num2)}')
-elif sign == '/':
-    num1, num2 = cal.split('/')
-    try:
-        result = int(num1)/int(num2)
-        print(f'{int(num1)}/{int(num2)}={result}')
-    except ZeroDivisionError:
-        print('除数不能为0')
+# # 4. 简易计算器
+# import string
+# cal = input('请输入')
+# sign=''
+# for i in range(len(cal)):
+#     if cal[i] not in string.digits:
+#         sign = cal[i]
+#         break
+# if sign == '+':
+#     num1,num2=cal.split('+')
+#     print(f'{int(num1)}+{int(num2)}={int(num1)+int(num2)}')
+# elif sign == '-':
+#     num1, num2 = cal.split('-')
+#     print(f'{int(num1)}-{int(num2)}={int(num1)-int(num2)}')
+# elif sign == '*':
+#     num1, num2 = cal.split('*')
+#     print(f'{int(num1)}*{int(num2)}={int(num1) * int(num2)}')
+# elif sign == '/':
+#     num1, num2 = cal.split('/')
+#     try:
+#         result = int(num1)/int(num2)
+#         print(f'{int(num1)}/{int(num2)}={result}')
+#     except ZeroDivisionError:
+#         print('除数不能为0')
