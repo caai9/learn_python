@@ -1,5 +1,8 @@
 import time
 from math import degrees  # day5
+
+from markdown_it.rules_inline import image
+
 # weight =int( input('请输入体重'))
 # match weight:   #同C中的switch case
 #     case 200 : k=200
@@ -1229,4 +1232,63 @@ set2 = {2,4,6,8,10}
 #         for elem in data_list:
 #             print(elem,end='\t')
 #         print()
+                        #day28
 
+from PIL import Image
+
+image0 = Image.open('Default.jpg')
+print(image0.format)
+print(image0.size)
+print(image0.mode)
+# image0.show()
+# image0.crop((80, 20, 310, 360)).show()#裁剪
+
+# image0.thumbnail((1280,1280))#缩放
+# image0.show()
+
+image1 = Image.open('rm.png')
+print(image1.size)
+image12 = image1.crop((60,40,260,120))
+# image12.show()
+# width,height = image12.size
+# image0.paste(image12.resize((int(width/1.5),int(height/1.5))),(1012,660))
+# image0.show()
+# image12.rotate(45).show()#旋转45度
+# image12.transpose(Image.FLIP_TOP_BOTTOM).show()#上下翻转
+# image12.transpose(Image.FLIP_LEFT_RIGHT).show()#左右翻转
+
+# for x in range(80,310):
+#     for y in range(20,300):
+#         image0.putpixel((x,y),(128,128,128))
+# image0.show()
+
+# from PIL import ImageFilter
+# image0.filter(ImageFilter.CONTOUR).show()
+# image1.show()
+# image1.filter(ImageFilter.CONTOUR).show()
+# image1.filter(ImageFilter.EDGE_ENHANCE_MORE).show()
+# image1.filter(ImageFilter.EMBOSS).show()
+# image1.filter(ImageFilter.BLUR).show()
+
+
+import random
+from PIL import Image,ImageDraw,ImageFont
+
+def random_color():
+    red = random.randint(0,255)
+    green = random.randint(0,255)
+    blue = random.randint(0,255)
+    return red,green,blue
+width,height = 800,600
+image00 = Image.new(mode='RGB',size=(width,height),color=(255,255,255))
+drawer = ImageDraw.Draw(image00)
+font = ImageFont.load_default()
+drawer.text((300,50),'Hello World!',fill=(255,0,0),font=font)
+drawer.line((0,0,width,height),fill=(0,0,255),width=2)
+drawer.line((width,0,0,height),fill=(0,0,255),width=2)
+xy = width//2-60,height//2-60,width//2+60,height//2+60
+drawer.rectangle(xy,outline=(255,0,0),width=2)
+for i in range(4):
+    left,top,right,bottom = 150+i*120,220,310+i*120,380
+    drawer.ellipse((left,top,right,bottom),outline=random_color(),width=8)
+image00.show()
