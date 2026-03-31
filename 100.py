@@ -1234,21 +1234,21 @@ set2 = {2,4,6,8,10}
 #         print()
                         #day28
 
-from PIL import Image
-
-image0 = Image.open('Default.jpg')
-print(image0.format)
-print(image0.size)
-print(image0.mode)
-# image0.show()
-# image0.crop((80, 20, 310, 360)).show()#裁剪
-
-# image0.thumbnail((1280,1280))#缩放
-# image0.show()
-
-image1 = Image.open('rm.png')
-print(image1.size)
-image12 = image1.crop((60,40,260,120))
+# from PIL import Image
+#
+# image0 = Image.open('Default.jpg')
+# print(image0.format)
+# print(image0.size)
+# print(image0.mode)
+# # image0.show()
+# # image0.crop((80, 20, 310, 360)).show()#裁剪
+#
+# # image0.thumbnail((1280,1280))#缩放
+# # image0.show()
+#
+# image1 = Image.open('rm.png')
+# print(image1.size)
+# image12 = image1.crop((60,40,260,120))
 # image12.show()
 # width,height = image12.size
 # image0.paste(image12.resize((int(width/1.5),int(height/1.5))),(1012,660))
@@ -1271,24 +1271,70 @@ image12 = image1.crop((60,40,260,120))
 # image1.filter(ImageFilter.BLUR).show()
 
 
-import random
-from PIL import Image,ImageDraw,ImageFont
+# import random
+# from PIL import Image,ImageDraw,ImageFont
+#
+# def random_color():
+#     red = random.randint(0,255)
+#     green = random.randint(0,255)
+#     blue = random.randint(0,255)
+#     return red,green,blue
+# width,height = 800,600
+# image00 = Image.new(mode='RGB',size=(width,height),color=(255,255,255))
+# drawer = ImageDraw.Draw(image00)
+# font = ImageFont.load_default()
+# drawer.text((300,50),'Hello World!',fill=(255,0,0),font=font)
+# drawer.line((0,0,width,height),fill=(0,0,255),width=2)
+# drawer.line((width,0,0,height),fill=(0,0,255),width=2)
+# xy = width//2-60,height//2-60,width//2+60,height//2+60
+# drawer.rectangle(xy,outline=(255,0,0),width=2)
+# for i in range(4):
+#     left,top,right,bottom = 150+i*120,220,310+i*120,380
+#     drawer.ellipse((left,top,right,bottom),outline=random_color(),width=8)
+# image00.show()
+                            #day30
+# import re
+# username = input('请输入用户名:')
+# qq = input('请输入QQ号:')
+# m1 = re.match(r'[0-9a-zA-Z_]{6,20}$',username)
+# if not m1:
+#     print('请输入有效用户名.')
+# m2 = re.match(r'[1-9]\d{4,11}',qq)
+# if not m2:
+#     print('请输入有效QQ号.')
+# if m1 and m2:
+#     print('有效')
 
-def random_color():
-    red = random.randint(0,255)
-    green = random.randint(0,255)
-    blue = random.randint(0,255)
-    return red,green,blue
-width,height = 800,600
-image00 = Image.new(mode='RGB',size=(width,height),color=(255,255,255))
-drawer = ImageDraw.Draw(image00)
-font = ImageFont.load_default()
-drawer.text((300,50),'Hello World!',fill=(255,0,0),font=font)
-drawer.line((0,0,width,height),fill=(0,0,255),width=2)
-drawer.line((width,0,0,height),fill=(0,0,255),width=2)
-xy = width//2-60,height//2-60,width//2+60,height//2+60
-drawer.rectangle(xy,outline=(255,0,0),width=2)
-for i in range(4):
-    left,top,right,bottom = 150+i*120,220,310+i*120,380
-    drawer.ellipse((left,top,right,bottom),outline=random_color(),width=8)
-image00.show()
+# import re
+# pattern = re.compile(r'(?<=\D)1[34578]\d{9}(?=\D)')
+# sentence = '''重要的事情说8130123456789遍，我的手机号是13512346789这个靓号，
+# 不是15600998765，也不是110或119，王大锤的手机号才是15600998765。'''
+# 方法一
+# tels_list = re.findall(pattern,sentence)
+# for tel in tels_list:
+#     print(tel)
+
+#方法二
+# for temp in pattern.finditer(sentence):
+#     print(temp.group())
+
+# 方法三
+# m = pattern.search(sentence)
+# while m :
+#     print(m.group())
+#     m=pattern.search(sentence,m.end())
+
+
+
+# import re
+# sentence = 'Oh, shit! 你是傻逼吗? Fuck you.'
+# purified = re.sub('fuck|shit|[傻煞沙]|[比笔逼叉缺吊碉雕]','*',sentence,
+#                   flags=re.IGNORECASE)
+# print(purified)
+
+import re
+poem = '窗前明月光，疑是地上霜。举头望明月，低头思故乡。'
+sentences_list = re.split(r'[，。]',poem)
+sentences_list = [sentence for sentence in sentences_list if sentence]
+for sentence in sentences_list:
+    print(sentence)
