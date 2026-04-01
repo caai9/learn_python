@@ -1,7 +1,9 @@
+import heapq
 import time
 from math import degrees  # day5
 
 from markdown_it.rules_inline import image
+from pygments.lexer import words
 
 # weight =int( input('请输入体重'))
 # match weight:   #同C中的switch case
@@ -1332,9 +1334,142 @@ set2 = {2,4,6,8,10}
 #                   flags=re.IGNORECASE)
 # print(purified)
 
-import re
-poem = '窗前明月光，疑是地上霜。举头望明月，低头思故乡。'
-sentences_list = re.split(r'[，。]',poem)
-sentences_list = [sentence for sentence in sentences_list if sentence]
-for sentence in sentences_list:
-    print(sentence)
+# import re
+# poem = '窗前明月光，疑是地上霜。举头望明月，低头思故乡。'
+# sentences_list = re.split(r'[，。]',poem)
+# sentences_list = [sentence for sentence in sentences_list if sentence]
+# for sentence in sentences_list:
+#     print(sentence)
+#                     #day31
+# prices = {
+#     'AAPL': 191.88,
+#     'GOOG': 1186.96,
+#     'IBM': 149.24,
+#     'ORCL': 48.44,
+#     'ACN': 166.89,
+#     'FB': 208.09,
+#     'SYMC': 21.29
+# }
+# prices2 = {key:value for key,value in prices.items() if value >100}
+# print(prices2)
+
+# names = ['关羽', '张飞', '赵云', '马超', '黄忠']
+# courses = ['语文', '数学', '英语']
+#
+# scores = [[None]*len(courses) for _ in names ]
+# for row,name in enumerate(names):
+#     for col,course in enumerate(courses):
+#         scores[row][col] = float(input(f'请输入{name}的{course}的成绩'))
+# print(scores)
+
+
+# import heapq
+#
+# list1= [34, 25, 12, 99, 87, 63, 58, 78, 88, 92]
+# list2 = [
+#     {'name': 'IBM', 'shares': 100, 'price': 91.1},
+#     {'name': 'AAPL', 'shares': 50, 'price': 543.22},
+#     {'name': 'FB', 'shares': 200, 'price': 21.09},
+#     {'name': 'HPQ', 'shares': 35, 'price': 31.75},
+#     {'name': 'YHOO', 'shares': 45, 'price': 16.35},
+#     {'name': 'ACME', 'shares': 75, 'price': 115.65}
+# ]
+# print(heapq.nlargest(3,list1))
+# print(heapq.nsmallest(3,list1))
+# print(heapq.nlargest(2,list2,key=lambda x:x['price']))
+# print(heapq.nlargest(2,list2,key=lambda x:x['shares']))
+
+# import heapq
+
+# nums = [10, 3, 8, 9, 15, 2, 7, 20, 1, 25]
+# print(heapq.nlargest(4,nums))
+# print(heapq.nsmallest(5,nums))
+
+# students = [
+#     {'name': '小明', 'score': 88},
+#     {'name': '小红', 'score': 95},
+#     {'name': '小刚', 'score': 72},
+#     {'name': '小李', 'score': 100},
+#     {'name': '小王', 'score': 63}
+# ]
+# print(heapq.nlargest(3,students,key=lambda x:x['score']))
+
+
+
+# goods = [
+#     {'name': '手机', 'price': 3999, 'sales': 1200},
+#     {'name': '电脑', 'price': 6999, 'sales': 500},
+#     {'name': '耳机', 'price': 299, 'sales': 3500},
+#     {'name': '平板', 'price': 2499, 'sales': 800},
+#     {'name': '手表', 'price': 1299, 'sales': 2100}
+# ]
+# print(heapq.nlargest(2,goods,key=lambda x:x['price']))
+# print(heapq.nsmallest(3,goods,key=lambda x:x['sales']))
+
+
+# import itertools
+# A=list(itertools.permutations('ABCD'))
+# B=list(itertools.combinations('ABCDE',3))
+# C=list(itertools.product('ABCD','123'))
+# D=itertools.cycle(('A','B','C'))
+# print(A)
+# print(B)
+# print(C)
+# print(next(D))
+# print(next(D))
+# print(next(D))
+# print(next(D))
+# print(next(D))
+
+
+# import itertools
+# # 请补全代码
+# result = list(itertools.permutations('123'))
+# print(result)
+
+
+# import itertools
+# # 请补全
+# result = list(itertools.combinations('WXYZ', 2))
+# print(result)
+
+
+
+
+# import itertools
+# result = list(itertools.product(['红','蓝'], ['大','小']))
+# print(result)
+
+
+# import itertools
+#
+# it = itertools.cycle(('↑','→','↓','←'))
+#
+# print(next(it))
+# print(next(it))
+# print(next(it))
+# print(next(it))
+# print(next(it))
+# print(next(it))
+
+
+
+from collections import Counter
+
+# words = [
+#     'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
+#     'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around',
+#     'the', 'eyes', "don't", 'look', 'around', 'the', 'eyes',
+#     'look', 'into', 'my', 'eyes', "you're", 'under'
+# ]
+# counter = Counter(words)
+# print(counter.most_common(3))
+
+
+num = [1,2,3,4,436,45,745,76,57,457,457,57,45,745,7,45,5,3532,523,42,2,47,8,9,679,2,967,7,56,4]
+counter = Counter(num)
+print(counter.most_common(2))
+
+
+
+
