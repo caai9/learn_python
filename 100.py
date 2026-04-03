@@ -1454,22 +1454,42 @@ set2 = {2,4,6,8,10}
 
 
 
-from collections import Counter
+# from collections import Counter
+#
+# # words = [
+# #     'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
+# #     'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around',
+# #     'the', 'eyes', "don't", 'look', 'around', 'the', 'eyes',
+# #     'look', 'into', 'my', 'eyes', "you're", 'under'
+# # ]
+# # counter = Counter(words)
+# # print(counter.most_common(3))
+#
+#
+# num = [1,2,3,4,436,45,745,76,57,457,457,57,45,745,7,45,5,3532,523,42,2,47,8,9,679,2,967,7,56,4]
+# counter = Counter(num)
+# print(counter.most_common(2))
 
-# words = [
-#     'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
-#     'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around',
-#     'the', 'eyes', "don't", 'look', 'around', 'the', 'eyes',
-#     'look', 'into', 'my', 'eyes', "you're", 'under'
-# ]
-# counter = Counter(words)
-# print(counter.most_common(3))
+# def select_sort(items,comp=lambda x,y:x<y):
+#     """简单选择排序"""
+#     items = items[:]
+#     for i in range(len(items)-1):
+#         min_index = i
+#         for j in range(i+1,len(items)):
+#             if comp(items[j],items[min_index]):
+#                 min_index=j
+#         items[i],items[min_index] = items[min_index],items[i]
+#     return items
 
 
-num = [1,2,3,4,436,45,745,76,57,457,457,57,45,745,7,45,5,3532,523,42,2,47,8,9,679,2,967,7,56,4]
-counter = Counter(num)
-print(counter.most_common(2))
-
-
-
-
+def bubble_sort(items,comp = lambda x,y:x>y):
+    items = items[:]
+    for i in range(len(items)-1):
+        swapped = False
+        for j in range(len(items)-1-i):
+            if comp(items[j],items[j+1]):
+                items[j],items[j+1] = items[j+1],items[j]
+                swapped=True
+        if not swapped:
+            break
+    return items
