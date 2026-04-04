@@ -1,6 +1,7 @@
 import heapq
 import time
 from math import degrees  # day5
+from operator import index
 
 from markdown_it.rules_inline import image
 from pygments.lexer import words
@@ -1482,14 +1483,90 @@ set2 = {2,4,6,8,10}
 #     return items
 
 
-def bubble_sort(items,comp = lambda x,y:x>y):
-    items = items[:]
-    for i in range(len(items)-1):
-        swapped = False
-        for j in range(len(items)-1-i):
-            if comp(items[j],items[j+1]):
-                items[j],items[j+1] = items[j+1],items[j]
-                swapped=True
-        if not swapped:
-            break
-    return items
+# def bubble_sort(items,comp = lambda x,y:x>y):
+#     items = items[:]
+#     for i in range(len(items)-1):
+#         swapped = False
+#         for j in range(len(items)-1-i):
+#             if comp(items[j],items[j+1]):
+#                 items[j],items[j+1] = items[j+1],items[j]
+#                 swapped=True
+#         if not swapped:
+#             break
+#     return items
+#
+# num = [1,2,3,4,436,45,745,76,57,457,457,57,45,745,7,45,5,3532,523,42,2,47,8,9,679,2,967,7,56,4]
+# print(bubble_sort(num))
+
+
+
+# def bubble_sort(items,comp=lambda x,y:x>y):
+#     items = items[:]
+#     for i in range(len(items)-1):
+#         swapped = False
+#         for j in range(len(items)-1-i):
+#             if comp(items[j],items[j+1]):
+#                 items[j],items[j+1]=items[j+1],items[j]
+#                 swapped = True
+#         if swapped:
+#             swapped=False
+#             for j in range(len(items)-2-i,i,-1):
+#                 if comp(items[j-1],items[j]):
+#                     items[j],items[j-1]=items[j-1],items[j]
+#                     swapped=True
+#         if not swapped:
+#             break
+#     return items
+# num = [1,2,3,4,436,45,745,76,57,457,457,57,45,745,7,45,5,3532,523,42,2,47,8,9,679,2,967,7,56,4]
+# print(bubble_sort(num))
+
+
+# def merge(items1,items2,comp=lambda x,y:x<y):
+#     items = []
+#     index1,index2 = 0,0
+#     while index1<len(items1) and index2<len(items2):
+#         if comp(items1[index1],items2[index2]):
+#             items.append(items1[index1])
+#             index1+=1
+#         else:
+#             items.append(items2[index2])
+#             index2+=1
+#     items += items1[index1:]
+#     items += items2[index2:]
+#     return items
+# def merge_sort(items,comp=lambda x,y:x<y):
+#     return _merge_sort(list(items),comp)
+#
+# def _merge_sort(items,comp):
+#     if len(items)<2:
+#         return items
+#     mid = len(items)//2
+#     left = _merge_sort(items[:mid],comp)
+#     right = _merge_sort(items[mid:],comp)
+#     return merge(left,right,comp)
+# num = [1,2,3,4,436,45,745,76,57,457,457,57,45,745,7,45,5,3532,523,42,2,47,8,9,679,2,967,7,56,4]
+# # print(merge_sort(num))
+#
+#
+# def seq_search(items,key):
+#     for index,item in enumerate(items):
+#         if item==key:
+#             return index
+#     return -1
+#
+# print(seq_search(merge_sort(num),57))
+#
+# #
+# def bin_search(items,key):
+#     start,end=0,len(items)-1
+#     while start<=end:
+#         mid = (start+end)//2
+#         if key>items[mid]:
+#             start=mid+1
+#         elif key<items[mid]:
+#             end=mid-1
+#         else:
+#             return mid
+#     return -1
+#
+# print(bin_search(merge_sort(num),57))
