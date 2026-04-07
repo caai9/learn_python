@@ -1,10 +1,12 @@
-import heapq
-import time
-from math import degrees  # day5
-from operator import index
-
-from markdown_it.rules_inline import image
-from pygments.lexer import words
+# import heapq
+# import time
+# from functools import wraps
+# from math import degrees  # day5
+# from operator import index
+# from turtledemo.penrose import start
+#
+# from markdown_it.rules_inline import image
+# from pygments.lexer import words
 
 # weight =int( input('请输入体重'))
 # match weight:   #同C中的switch case
@@ -1652,39 +1654,143 @@ set2 = {2,4,6,8,10}
 
 
 
-import sys
-import time
-SIZE=5
-total = 0
+# import sys
+# import time
+# SIZE=5
+# total = 0
+#
+# def print_board(board):
+#     for row in board:
+#         for col in row:
+#             print(str(col).center(4),end='')
+#         print()
+# def patrol(board,row,col,step=1):
+#     if row>=0 and row<SIZE and \
+#         col>=0 and col<SIZE and \
+#         board[row][col] == 0:
+#         board[row][col] = step
+#         if step==SIZE*SIZE:
+#             global total
+#             total+=1
+#             print(f'第{total}种走法: ')
+#             print_board(board)
+#         patrol(board, row - 2, col - 1, step + 1)
+#         patrol(board, row - 1, col - 2, step + 1)
+#         patrol(board, row + 1, col - 2, step + 1)
+#         patrol(board, row + 2, col - 1, step + 1)
+#         patrol(board, row + 2, col + 1, step + 1)
+#         patrol(board, row + 1, col + 2, step + 1)
+#         patrol(board, row - 1, col + 2, step + 1)
+#         patrol(board, row - 2, col + 1, step + 1)
+#         board[row][col]=0
+#
+# def main():
+#     board = [[0]*SIZE  for _ in range(SIZE)]
+#     patrol(board,SIZE-1,SIZE-1)
+#
+# if __name__=='__main__':
+#     main()
 
-def print_board(board):
-    for row in board:
-        for col in row:
-            print(str(col).center(4),end='')
-        print()
-def patrol(board,row,col,step=1):
-    if row>=0 and row<SIZE and \
-        col>=0 and col<SIZE and \
-        board[row][col] == 0:
-        board[row][col] = step
-        if step==SIZE*SIZE:
-            global total
-            total+=1
-            print(f'第{total}种走法: ')
-            print_board(board)
-        patrol(board, row - 2, col - 1, step + 1)
-        patrol(board, row - 1, col - 2, step + 1)
-        patrol(board, row + 1, col - 2, step + 1)
-        patrol(board, row + 2, col - 1, step + 1)
-        patrol(board, row + 2, col + 1, step + 1)
-        patrol(board, row + 1, col + 2, step + 1)
-        patrol(board, row - 1, col + 2, step + 1)
-        patrol(board, row - 2, col + 1, step + 1)
-        board[row][col]=0
+# def main():
+#     items = list(map(int,input().split()))
+#     overall = partial = items[0]
+#     for i in range(1,len(items)):
+#         partial = max(items[i],partial+items[i])
+#         overall = max(partial,overall)
+#     print(overall)
+# if __name__=='__main__':
+#     main()
 
-def main():
-    board = [[0]*SIZE  for _ in range(SIZE)]
-    patrol(board,SIZE-1,SIZE-1)
 
-if __name__=='__main__':
-    main()
+# items1 = list(map(lambda x:x**2,filter(lambda x:x%2,range(1,10))))
+# items2 = [x**2 for x in range(1,10) if x%2]
+
+# import time
+# def record_time(func):
+#     """自定义装饰函数的装饰器"""
+#     @wraps(func)
+#     def wrapper(*args,**kwargs):
+#         start = time.time()
+#         result = func(*args,**kwargs)
+#         print(f'{func.__name__}:{time.time()-start}')
+#         return result
+#     return wrapper
+
+
+# from functools import wraps
+# from time import time
+# def record(output):
+#     def decorate(func):
+#         @wraps(func)
+#         def wrapper(*args,**kwargs):
+#             start = time()
+#             result = func(*args,kwargs)
+#             output(func.__name__,time()-start)
+#             return result
+#         return wrapper
+#     return decorate
+
+
+# from functools import wraps
+# import time
+# class Record():
+#     def __init__(self,output):
+#         self.output = output
+#     def __call__(self, func):
+#         @wraps(func)
+#         def wrapper(*args,**kwargs):
+#             start = time.time()
+#             result = func(*args,**kwargs)
+#             self.output(func.__name__,time.time()-start)
+#             return result
+#         return wrapper
+# # 自定义输出函数
+# def my_print(name, t):
+#     print(f"【运行结束】函数：{name}，耗时：{t:.4f} 秒")
+#
+# # 用类装饰器
+# @Record(my_print)
+# def test():
+#     time.sleep(1)
+#
+# test()
+
+
+# from functools import wraps
+#
+# def singleton(cls):
+#     instances={}
+#     @wraps(cls)
+#     def wrapper(*args,**kwargs):
+#         if cls not in instances:
+#             instances[cls] = cls(*args,**kwargs)
+#         return instances[cls]
+#     return wrapper
+# @singleton
+# class President:
+#     pass
+
+
+
+# from functools import wraps
+# from threading import RLock
+# def singleton(cls):
+#     instances={}
+#     locker = RLock()
+#     @wraps(cls)
+#     def wrapper(*args,**kwargs):
+#         if cls not in instances:
+#             with locker:
+#                 if cls not in instances:
+#                     instances[cls] = cls(*args,**kwargs)
+#         return instances[cls]
+#     return wrapper
+# @singleton
+# class President:
+#     pass
+
+
+
+
+
+
