@@ -56,3 +56,30 @@
 #         print(f'{int(num1)}/{int(num2)}={result}')
 #     except ZeroDivisionError:
 #         print('除数不能为0')
+
+class Solution(object):
+    def distributeCandies(self, candies, num_people):
+        """
+        :type candies: int
+        :type num_people: int
+        :rtype: List[int]
+        """
+        ans = [0]*num_people
+        num = 1
+        while candies>0:
+            for i in range(num_people):
+                 # if cnt == num_people and num < candies:
+                if num<=candies :
+                    ans[i]+=num
+                    candies-=num
+                    num+=1
+                else:
+                    ans[i]+=candies
+                    candies=0
+                    break
+        return ans
+candies = int(input('candies='))
+num_people = int(input('num_people='))
+s1 =Solution()
+ans=s1.distributeCandies(candies,num_people)
+print(ans)
